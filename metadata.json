@@ -1,0 +1,6 @@
+{
+  "name": "Cubic Farm - Fresh From The Farm, Shaped For Your Fridge",
+  "description": "High-fidelity landing page with realistic 2D falling physics of cubic fruits and vegetables, shaped perfectly for your fridge.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
