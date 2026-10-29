@@ -305,7 +305,7 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
         if (!engineRef.current) return false;
         const next = !zeroGravity;
         setZeroGravity(next);
-        engineRef.current.gravity.y = next ? -0.15 : 1.5; // Faster fall
+        engineRef.current.gravity.y = next ? -0.15 : 2.5; // INCREASED FALL SPEED
         cardsRef.current.forEach((c) => Matter.Sleeping.set(c.body, false));
         return next;
       },
@@ -360,7 +360,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       const mediaY = -h / 2 + mediaInset;
       const mediaRadius = Math.max(3, cardRadius - 3);
 
-      // REMOVED SHADOW FOR PERFORMANCE
       roundRectPath(ctx, -w / 2, -h / 2, w, h, cardRadius);
       ctx.fillStyle = 'rgba(18, 18, 18, 0.95)';
       ctx.fill();
@@ -575,9 +574,8 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       });
       imageElementsRef.current = images;
 
-      // Faster gravity for snappier falling
       const engine = Matter.Engine.create({
-        gravity: { x: 0, y: 1.5, scale: 0.001 },
+        gravity: { x: 0, y: 2.5, scale: 0.001 }, // INCREASED FALL SPEED
       });
       engineRef.current = engine;
 
@@ -703,14 +701,14 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       };
     }, []);
 
-        const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
       if (!engineRef.current || !canvasRef.current) return;
       const coords = getCanvasCoords(e);
       const bodies = cardsRef.current.map((c) => c.body);
 
       const hitBodies = Matter.Query.point(bodies, coords);
       if (hitBodies.length > 0) {
-        const targetBody = hitBodies[hitBodies.length - 1];
+               const targetBody = hitBodies[hitBodies.length - 1];
         Matter.Sleeping.set(targetBody, false);
 
         // Smooth Drag Hack: Pause physics on the body while dragging
@@ -755,8 +753,7 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
         history.push({ x: coords.x, y: coords.y, time: now });
         if (history.length > 8) history.shift();
 
-        // Because the body is static while dragging, we can set position directly
-        // for pixel-perfect 1:1 tracking with the mouse.
+        // Pixel-perfect 1:1 tracking because the body is static
         Matter.Body.setPosition(body, { x: coords.x, y: coords.y });
       }
     };
@@ -766,7 +763,7 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       const { body, history, hasMoved } = dragRef.current;
 
       if (body) {
-        // Re-enable physics on the dragged card
+        // Re-enable physics so the card falls again
         Matter.Body.setStatic(body, false);
 
         if (history.length >= 2) {

@@ -23,17 +23,17 @@ export const OverlapGallerySection: React.FC = () => {
         
         gsap.fromTo(
           images,
-          { y: 100, opacity: 0 },
+          { y: 60, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 1.6,
-            stagger: 0, 
+            duration: 0.8, // Faster, snappier animation
+            stagger: 0.1, // Stagger is cheaper than simultaneous
             ease: 'power2.out',
             scrollTrigger: {
               trigger: blockRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              start: 'top 90%',
+              toggleActions: 'play none none none', // Plays once and stops (no reverse)
             },
           }
         );
@@ -43,15 +43,16 @@ export const OverlapGallerySection: React.FC = () => {
       animateBlock(block2Ref);
       animateBlock(block3Ref);
 
-      // 1. The Constant Jump Animation for the Button
+      // The Constant Jump Animation for the Button
+      // Using a simpler scale-based animation which is hardware accelerated
       if (buttonRef.current) {
         gsap.to(buttonRef.current, {
-          y: -12, // Jumps up 12px
-          duration: 0.6,
-          repeat: -1, // Infinite loop
-          yoyo: true, // Goes up, then comes back down
-          ease: 'power1.inOut', // Smooth deceleration at the top of the jump
-          repeatDelay: 0.4 // Waits 0.4 seconds at the bottom before jumping again
+          y: -6, // Smaller jump distance
+          duration: 0.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut', // Smoother than power1
+          repeatDelay: 0.3,
         });
       }
     }, sectionRef);
@@ -111,7 +112,7 @@ export const OverlapGallerySection: React.FC = () => {
         
         <div className={`absolute bottom-6 ${align === 'left' ? 'left-6' : 'right-6 text-right'} text-white z-20 pointer-events-none transition-opacity duration-300 group-hover:opacity-0`}>
           <span className="text-[#e6e097] text-xs font-bold tracking-wider uppercase mb-1 block">{tag}</span>
-          <h3 className="text-white drop-shadow-md" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '18px', fontWeight: 600 }}>
+          <h3 className="text-white" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '18px', fontWeight: 600 }}>
             {title}
           </h3>
         </div>

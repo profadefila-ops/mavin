@@ -21,8 +21,9 @@ export const MarqueeLogoSection: React.FC = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // 1. Infinite horizontal loop
+      // Using x: '-50%' instead of xPercent for more reliable looping with flex containers
       gsap.to(marqueeRef.current, {
-        xPercent: -50,
+        x: '-50%',
         duration: 40,
         repeat: -1,
         ease: 'none',
@@ -41,11 +42,11 @@ export const MarqueeLogoSection: React.FC = () => {
           opacity: 1,
           filter: 'blur(0px)',
           duration: 1.2,
-          stagger: 0.2, // Title fades in slightly before the logos
+          stagger: 0.2,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top 90%', // Triggers as soon as the section peeks into view
+            start: 'top 90%',
             toggleActions: 'play none none reverse',
           },
         }
@@ -58,7 +59,6 @@ export const MarqueeLogoSection: React.FC = () => {
   return (
     <section 
       ref={containerRef}
-      // Reduced padding top to pt-4 sm:pt-6
       className="relative w-full pt-4 sm:pt-6 pb-4 sm:pb-6 bg-[#050505] overflow-hidden flex flex-col items-center"
     >
       
@@ -88,8 +88,9 @@ export const MarqueeLogoSection: React.FC = () => {
         >
           {/* We duplicate the block to make the loop seamless */}
           {[1, 2].map((blockIndex) => (
-            <div key={blockIndex} className="flex items-center">
+            <div key={blockIndex} className="flex items-center shrink-0">
               {LOGOS.map((src, idx) => (
+                // Explicitly set the width, height, and flex-shrink-0
                 <div 
                   key={`${blockIndex}-${idx}`} 
                   className="flex items-center justify-center shrink-0 w-24 md:w-36 h-16 md:h-20 mx-4 md:mx-8 group relative"
