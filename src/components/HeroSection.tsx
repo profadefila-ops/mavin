@@ -59,7 +59,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onJoinClick, isMuted }
           {/* Animated Glowing MAVIN Text in #fdc44e — bolder, tighter tracking */}
           <div className="relative my-2 sm:my-4">
             <h1
-              className="font-jakarta font-black tracking-[-0.04em] sm:tracking-[-0.05em] text-7xl sm:text-9xl md:text-[140px] lg:text-[240px] leading-[0.85] uppercase text-[#fdc44e] animate-mavin-glow select-none transition-transform duration-300"
+              className="font-jakarta font-black tracking-[-0.04em] sm:tracking-[-0.05em] text-7xl sm:text-9xl md:text-[140px] lg:text-[200px] leading-[0.85] uppercase text-[#fdc44e] animate-mavin-glow select-none transition-transform duration-300"
               style={{
                 color: '#fdc44e',
                 fontWeight: 900,

@@ -34,173 +34,25 @@ const playBoing = (vol: number) => {
   if (CARD_SOUNDS_ENABLED) soundManager.playBoing(vol);
 };
 
-// 3 videos FIRST, then 14 images.
 const MAVIN_CHANNELS = [
-    // ---------- VIDEOS (4) ----------
-  {
-    type: 'video' as const,
-    src: 'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7578543149400739080_hd.mp4',
-    remoteSrc:
-      'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7578543149400739080_hd.mp4',
-    label: 'MAVIN • Video 01',
-    artist: 'MAVIN',
-    title: 'Video 01',
-  },
-  {
-    type: 'video' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7630081594912476424_v3.mp4',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7630081594912476424_v3.mp4',
-    label: 'MAVIN • Video 02',
-    artist: 'MAVIN',
-    title: 'Video 02',
-  },
-  {
-    type: 'video' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7685386291009162503_v3.mp4',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7685386291009162503_v3.mp4',
-    label: 'MAVIN • Video 03',
-    artist: 'MAVIN',
-    title: 'Video 03',
-  },
-  {
-    type: 'video' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7689537019982171400_v3.mp4',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7689537019982171400_v3.mp4',
-    label: 'MAVIN • Video 04',
-    artist: 'MAVIN',
-    title: 'Video 04',
-  },
-
-  // ---------- IMAGES ----------
-  {
-    type: 'image' as const,
-    src: 'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7676223592820002055_1.jpeg',
-    remoteSrc:
-      'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7676223592820002055_1.jpeg',
-    label: 'MAVIN • Image 01',
-    artist: 'MAVIN',
-    title: 'Image 01',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a1.jpg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a1.jpg',
-    label: 'MAVIN • Image 02',
-    artist: 'MAVIN',
-    title: 'Image 02',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a3.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a3.jpeg',
-    label: 'MAVIN • Image 03',
-    artist: 'MAVIN',
-    title: 'Image 03',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a4.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a4.jpeg',
-    label: 'MAVIN • Image 04',
-    artist: 'MAVIN',
-    title: 'Image 04',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a5.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a5.jpeg',
-    label: 'MAVIN • Image 05',
-    artist: 'MAVIN',
-    title: 'Image 05',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a6.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a6.jpeg',
-    label: 'MAVIN • Image 06',
-    artist: 'MAVIN',
-    title: 'Image 06',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a7.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a7.jpeg',
-    label: 'MAVIN • Image 07',
-    artist: 'MAVIN',
-    title: 'Image 07',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a9.jpg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a9.jpg',
-    label: 'MAVIN • Image 08',
-    artist: 'MAVIN',
-    title: 'Image 08',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a10.jpg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a10.jpg',
-    label: 'MAVIN • Image 09',
-    artist: 'MAVIN',
-    title: 'Image 09',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a12.jpg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a12.jpg',
-    label: 'MAVIN • Image 10',
-    artist: 'MAVIN',
-    title: 'Image 10',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a15.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a15.jpeg',
-    label: 'MAVIN • Image 11',
-    artist: 'MAVIN',
-    title: 'Image 11',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a14.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a14.jpeg',
-    label: 'MAVIN • Image 12',
-    artist: 'MAVIN',
-    title: 'Image 12',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a13.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a13.jpeg',
-    label: 'MAVIN • Image 13',
-    artist: 'MAVIN',
-    title: 'Image 13',
-  },
-  {
-    type: 'image' as const,
-    src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a16.jpeg',
-    remoteSrc:
-      'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a16.jpeg',
-    label: 'MAVIN • Image 14',
-    artist: 'MAVIN',
-    title: 'Image 14',
-  },
+  { type: 'video' as const, src: 'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7578543149400739080_hd.mp4', remoteSrc: 'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7578543149400739080_hd.mp4', label: 'MAVIN • Video 01', artist: 'MAVIN', title: 'Video 01' },
+  { type: 'video' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7630081594912476424_v3.mp4', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7630081594912476424_v3.mp4', label: 'MAVIN • Video 02', artist: 'MAVIN', title: 'Video 02' },
+  { type: 'video' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7685386291009162503_v3.mp4', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7685386291009162503_v3.mp4', label: 'MAVIN • Video 03', artist: 'MAVIN', title: 'Video 03' },
+  { type: 'video' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7689537019982171400_v3.mp4', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/snaptik_7689537019982171400_v3.mp4', label: 'MAVIN • Video 04', artist: 'MAVIN', title: 'Video 04' },
+  { type: 'image' as const, src: 'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7676223592820002055_1.jpeg', remoteSrc: 'https://pub-00276c480a6b455b8d30567940f580c8.r2.dev/SaveTikTok.to_7676223592820002055_1.jpeg', label: 'MAVIN • Image 01', artist: 'MAVIN', title: 'Image 01' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a1.jpg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a1.jpg', label: 'MAVIN • Image 02', artist: 'MAVIN', title: 'Image 02' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a3.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a3.jpeg', label: 'MAVIN • Image 03', artist: 'MAVIN', title: 'Image 03' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a4.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a4.jpeg', label: 'MAVIN • Image 04', artist: 'MAVIN', title: 'Image 04' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a5.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a5.jpeg', label: 'MAVIN • Image 05', artist: 'MAVIN', title: 'Image 05' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a6.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a6.jpeg', label: 'MAVIN • Image 06', artist: 'MAVIN', title: 'Image 06' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a7.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a7.jpeg', label: 'MAVIN • Image 07', artist: 'MAVIN', title: 'Image 07' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a9.jpg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a9.jpg', label: 'MAVIN • Image 08', artist: 'MAVIN', title: 'Image 08' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a10.jpg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a10.jpg', label: 'MAVIN • Image 09', artist: 'MAVIN', title: 'Image 09' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a12.jpg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a12.jpg', label: 'MAVIN • Image 10', artist: 'MAVIN', title: 'Image 10' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a15.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a15.jpeg', label: 'MAVIN • Image 11', artist: 'MAVIN', title: 'Image 11' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a14.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a14.jpeg', label: 'MAVIN • Image 12', artist: 'MAVIN', title: 'Image 12' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a13.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a13.jpeg', label: 'MAVIN • Image 13', artist: 'MAVIN', title: 'Image 13' },
+  { type: 'image' as const, src: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a16.jpeg', remoteSrc: 'https://lightsalmon-stinkbug-756615.hostingersite.com/wp-content/uploads/2026/10/a16.jpeg', label: 'MAVIN • Image 14', artist: 'MAVIN', title: 'Image 14' },
 ];
 
 const VIDEO_COUNT = MAVIN_CHANNELS.filter((c) => c.type === 'video').length;
@@ -239,11 +91,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       MAVIN_CHANNELS[0].label
     );
     const [audioActive, setAudioActive] = useState<boolean>(!isMuted);
-
-    const getCeilingY = (width: number, height: number) => {
-      const isMobile = width < 640;
-      return isMobile ? height * 0.42 : height * 0.36;
-    };
 
     const pickChannelIndex = (): number =>
       Math.floor(Math.random() * MAVIN_CHANNELS.length);
@@ -328,7 +175,7 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       const isMobile = width < 640;
       const baseSize = customSize || (isMobile ? 60 : 85);
 
-            const sizeMult = randomBetween(0.95, 1.15);
+      const sizeMult = randomBetween(0.95, 1.15);
       const size = Math.max(55, baseSize * sizeMult);
       const w = size;
       const h = size;
@@ -513,7 +360,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       const mediaY = -h / 2 + mediaInset;
       const mediaRadius = Math.max(3, cardRadius - 3);
 
-      // Shadow
       ctx.save();
       ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
       ctx.shadowBlur = Math.max(8, w * 0.12);
@@ -523,7 +369,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       ctx.fill();
       ctx.restore();
 
-      // Card body
       roundRectPath(ctx, -w / 2, -h / 2, w, h, cardRadius);
       const grad = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2);
       grad.addColorStop(0, '#1a1a1c');
@@ -531,12 +376,10 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       ctx.fillStyle = grad;
       ctx.fill();
 
-      // Gold border
       ctx.strokeStyle = 'rgba(253, 196, 78, 0.45)';
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      // Media
       ctx.save();
       roundRectPath(ctx, mediaX, mediaY, mediaW, mediaH, mediaRadius);
       ctx.clip();
@@ -601,7 +444,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
         ctx.textAlign = 'left';
       }
 
-      // Sheen
       const sheen = ctx.createLinearGradient(mediaX, mediaY, mediaX, mediaY + mediaH * 0.5);
       sheen.addColorStop(0, 'rgba(255, 255, 255, 0.14)');
       sheen.addColorStop(1, 'rgba(255, 255, 255, 0)');
@@ -610,7 +452,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
 
       ctx.restore();
 
-      // Footer
       const showFooterText = w >= 55;
       if (showFooterText) {
         const footerY = mediaY + mediaH + pad * 0.5;
@@ -637,7 +478,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
         ctx.textAlign = 'left';
       }
 
-      // LIVE indicator — only on tuned VIDEO cards
       if (isTuned && w >= 70) {
         const pillW = Math.max(28, w * 0.22);
         const pillH = Math.max(10, w * 0.075);
@@ -662,7 +502,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       ctx.restore();
     };
 
-    // Main Simulation & Render Loop
     useEffect(() => {
       const container = containerRef.current;
       const canvas = canvasRef.current;
@@ -670,7 +509,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
 
       let isDestroyed = false;
 
-      // ---------- Load Videos (offscreen, smooth) ----------
       const videos: HTMLVideoElement[] = [];
       const videoConfigs = MAVIN_CHANNELS.filter((c) => c.type === 'video');
       videoConfigs.forEach((cfg, idx) => {
@@ -680,9 +518,7 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
         vid.muted = true;
         vid.autoplay = true;
         vid.playsInline = true;
-        // 'metadata' = don't pre-download whole files; start decode on play()
         vid.preload = 'metadata';
-        // Slight slow-mo for a premium feel + lower decode cost
         vid.playbackRate = 0.6;
         vid.setAttribute('playsinline', '');
         vid.setAttribute('webkit-playsinline', '');
@@ -720,7 +556,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       });
       videoElementsRef.current = videos;
 
-      // Offscreen 192×192 cache per video (smaller = cheaper texture uploads)
       videoCacheRef.current = videos.map(() => {
         const c = document.createElement('canvas');
         c.width = 192;
@@ -728,7 +563,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
         return c;
       });
 
-      // ---------- Load Images ----------
       const images: HTMLImageElement[] = [];
       const imageConfigs = MAVIN_CHANNELS.filter((c) => c.type === 'image');
       imageConfigs.forEach((cfg, idx) => {
@@ -745,7 +579,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       });
       imageElementsRef.current = images;
 
-      // ---------- Matter.js Engine ----------
       const engine = Matter.Engine.create({
         gravity: { x: 0, y: 1.1, scale: 0.001 },
       });
@@ -784,12 +617,11 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       };
 
       handleResize();
-           const resizeObserver = new ResizeObserver(() => handleResize());
+      const resizeObserver = new ResizeObserver(() => handleResize());
       resizeObserver.observe(container);
 
       populateInitialDrop(engine, container.clientWidth, container.clientHeight);
 
-      // ---------- Render loop ----------
       let lastTime = performance.now();
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
@@ -802,9 +634,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
 
         Matter.Engine.update(engine, delta > 0 ? delta : 16.67);
 
-        // Refresh each video's offscreen cache ONCE per frame.
-        // Every card using that video just blits this cache — so we go
-        // from N video texture uploads per frame down to 1 per video.
         for (let i = 0; i < videos.length; i++) {
           const vid = videos[i];
           const cache = videoCacheRef.current[i];
@@ -820,6 +649,7 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
               let dh = ch;
               let dx = 0;
               let dy = 0;
+
               if (srcAspect > dstAspect) {
                 dh = ch;
                 dw = ch * srcAspect;
@@ -836,26 +666,10 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
           }
         }
 
-        // Soft ceiling clamp — cards fall in from above but never drift
-        // back over the MAVIN headline.
         const width = container.clientWidth;
         const height = container.clientHeight;
-        const ceilingY = getCeilingY(width, height);
 
-        cardsRef.current.forEach((c) => {
-          const halfH = c.height / 2;
-          const minCenterY = ceilingY + halfH * 0.3;
-          if (c.body.position.y < minCenterY && c.body.velocity.y < 0) {
-            Matter.Body.setPosition(c.body, {
-              x: c.body.position.x,
-              y: minCenterY,
-            });
-            Matter.Body.setVelocity(c.body, {
-              x: c.body.velocity.x,
-              y: 0,
-            });
-          }
-        });
+        // Ceiling clamp removed entirely — cards are free to be dragged anywhere.
 
         ctx.clearRect(0, 0, width, height);
 
@@ -868,7 +682,6 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
 
       animFrameRef.current = requestAnimationFrame(tick);
 
-      // ---------- Cleanup ----------
       return () => {
         isDestroyed = true;
         resizeObserver.disconnect();
@@ -895,8 +708,7 @@ export const FruitPhysicsCanvas = forwardRef<FruitPhysicsHandle, FruitPhysicsPro
       };
     }, []);
 
-    // ---------- Pointer handlers ----------
-    const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+        const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
       if (!engineRef.current || !canvasRef.current) return;
       const coords = getCanvasCoords(e);
       const bodies = cardsRef.current.map((c) => c.body);
